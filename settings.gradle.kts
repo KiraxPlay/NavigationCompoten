@@ -1,4 +1,7 @@
 pluginManagement {
+    buildscript{
+
+    }
     repositories {
         google {
             content {

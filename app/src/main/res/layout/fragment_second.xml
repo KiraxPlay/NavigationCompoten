@@ -6,4 +6,21 @@
     tools:context=".SecondFragment"
     android:background="@color/blue">
 
+    <Button
+        android:id="@+id/btnNavi"
+        android:layout_width="wrap_content"
+        android:layout_height="69dp"
+        android:layout_margin="150dp"
+        android:text="Siguiente" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:text="name"
+        android:layout_margin="100dp"/>
+
 </FrameLayout>
