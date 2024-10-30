@@ -1,3 +1,3 @@
 # NavigationCompoten
 
-#Todo esta en la batch Master
+El trabajo NavigationComponent esta en la rama del mismo nombre
