@@ -42,6 +42,7 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.ui.graphics.android)
     val navVersion = "2.7.0"
     //NavComponent
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")//iniciando una varible ya que se llamara una libreria

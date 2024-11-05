@@ -5,6 +5,40 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GrabadoraActivity">
+    tools:context=".ui.GrabadoraActivity"
+    android:background="@color/black">
+
+    <Button
+        android:id="@+id/btnGrabar"
+        android:layout_width="153dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="108dp"
+        android:background="@android:drawable/ic_btn_speak_now"
+        android:backgroundTint="#090909"
+        android:text="Grabar"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPausar"
+        android:layout_width="141dp"
+        android:layout_height="93dp"
+        android:background="@android:drawable/ic_media_pause"
+        android:text="Pausar"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="295dp" />
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/ic_media_play"
+        android:text="Play"
+        tools:layout_editor_absoluteX="178dp"
+        tools:layout_editor_absoluteY="464dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
