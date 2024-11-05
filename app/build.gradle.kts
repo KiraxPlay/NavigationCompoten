@@ -46,6 +46,12 @@ dependencies {
     //NavComponent
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")//iniciando una varible ya que se llamara una libreria
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+    //
+
+    //camara
+    implementation("androidx.camera:camera-camera2:1.2.2")
+    implementation("androidx.camera:camera-lifecycle:1.2.2")
+    implementation("androidx.camera:camera-view:1.2.2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

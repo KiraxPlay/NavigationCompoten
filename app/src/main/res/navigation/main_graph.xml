@@ -36,5 +36,14 @@
         android:id="@+id/thirdFragment"
         android:name="com.example.navigationcomponentexample.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_grabadoraActivity"
+            app:destination="@id/grabadoraActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/grabadoraActivity"
+        android:name="com.example.navigationcomponentexample.ui.GrabadoraActivity"
+        android:label="activity_grabadora"
+        tools:layout="@layout/activity_grabadora" />
 </navigation>
