@@ -1,5 +1,5 @@
 package com.example.navigationcomponentexample.view
-
+/*
 import android.Manifest
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -45,14 +45,14 @@ class CamaraActivity : AppCompatActivity() {
 
         checkPermissions()
 
-        if(allPermissionGranted()){
+        /*if(allPermissionGranted()){
             startCamera()
         }else{
             ActivityCompat.requestPermissions(
                 this,Constants.REQUIRED_PERMISSIONS,Constants.REQUEST_CODE_PERMISSIONS
             )
         }
-
+        */
     }
 
     private fun checkPermissions() {
@@ -88,3 +88,5 @@ class CamaraActivity : AppCompatActivity() {
 
     }
 }
+
+ */
