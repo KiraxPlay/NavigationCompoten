@@ -14,6 +14,7 @@ import androidx.camera.core.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cristhian.miprimeraapp.Constants
+import com.cristhian.miprimeraapp.Constants.REQUIRED_PERMISSIONS
 import com.example.navigationcomponentexample.databinding.ActivityCamaraBinding
 import java.io.File
 
@@ -44,46 +45,26 @@ class CamaraActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        if(checkPermissions()){
+        if(allPermissionsGranted()){
             startCamera()
         }else{
             ActivityCompat.requestPermissions(
-                this,Constants.REQUIRED_PERMISSIONS, Constants.REQUEST_CODE_PERMISSIONS
+                this, Constants.REQUIRED_PERMISSIONS,Constants.REQUEST_CODE_PERMISSIONS
             )
         }
 
     }
 
-    private fun checkPermissions():Boolean {
-        if (
-            ContextCompat.checkSelfPermission(
-                this, Manifest.permission.RECORD_AUDIO
-            )
-            != PackageManager.PERMISSION_GRANTED
-            ||
-            ContextCompat.checkSelfPermission(
-                this, Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-            != PackageManager.PERMISSION_GRANTED
-            ||
-            ContextCompat.checkSelfPermission(
-                this, Manifest.permission.CAMERA
-            )
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    Manifest.permission.RECORD_AUDIO,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.CAMERA
-                ), 0
-            )
-            startCamera()
-        }
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(
+            baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
-    private fun startCamera(){
 
-    }
+    private fun startCamera(){}
+
+    private fun takePhoto(){}
+
+    private fun captureVideo(){}
+
 }
