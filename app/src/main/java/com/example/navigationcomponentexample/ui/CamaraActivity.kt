@@ -13,6 +13,7 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.cristhian.miprimeraapp.Constants
 import com.example.navigationcomponentexample.databinding.ActivityCamaraBinding
 import java.io.File
 
@@ -42,19 +43,18 @@ class CamaraActivity : AppCompatActivity() {
         binding = ActivityCamaraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        checkPermissions()
 
-        /*if(allPermissionGranted()){
+        if(checkPermissions()){
             startCamera()
         }else{
             ActivityCompat.requestPermissions(
-                this,Constants.REQUIRED_PERMISSIONS,Constants.REQUEST_CODE_PERMISSIONS
+                this,Constants.REQUIRED_PERMISSIONS, Constants.REQUEST_CODE_PERMISSIONS
             )
         }
-        */
+
     }
 
-    private fun checkPermissions() {
+    private fun checkPermissions():Boolean {
         if (
             ContextCompat.checkSelfPermission(
                 this, Manifest.permission.RECORD_AUDIO
