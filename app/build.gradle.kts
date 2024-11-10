@@ -49,9 +49,10 @@ dependencies {
     //
 
     //camara
-    implementation("androidx.camera:camera-camera2:1.2.2")
-    implementation("androidx.camera:camera-lifecycle:1.2.2")
-    implementation("androidx.camera:camera-view:1.2.2")
+    val camara = "1.2.2"
+    implementation("androidx.camera:camera-camera2:$camara")
+    implementation("androidx.camera:camera-lifecycle:$camara")
+    implementation("androidx.camera:camera-view:$camara")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
