@@ -1,17 +1,13 @@
-package com.example.navigationcomponentexample.ui
+package com.example.navigationcomponentexample.view
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import android.Manifest
-import android.media.MediaPlayer
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
-import android.view.View
-import android.widget.Button
 import androidx.core.app.ActivityCompat
-import com.example.navigationcomponentexample.R
 import com.example.navigationcomponentexample.databinding.ActivityGrabadoraBinding
 
 class GrabadoraActivity : AppCompatActivity() {

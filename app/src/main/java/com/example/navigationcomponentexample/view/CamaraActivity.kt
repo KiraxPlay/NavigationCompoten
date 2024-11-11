@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.Camera
@@ -46,25 +47,32 @@ class CamaraActivity : AppCompatActivity() {
 
 
         if(allPermissionsGranted()){
-            startCamera()
+            Toast.makeText(this,
+                "Has aceptado los permisos",
+                Toast.LENGTH_SHORT).show()
         }else{
             ActivityCompat.requestPermissions(
-                this, Constants.REQUIRED_PERMISSIONS,Constants.REQUEST_CODE_PERMISSIONS
+                this, Constants.REQUIRED_PERMISSIONS,
+                Constants.REQUEST_CODE_PERMISSIONS
             )
         }
 
+        binding.BtnCamara.setOnClickListener { takePhoto() }
+
     }
 
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+    private fun allPermissionsGranted() =
+        Constants.REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(
-            baseContext, it) == PackageManager.PERMISSION_GRANTED
+            baseContext, it
+        ) == PackageManager.PERMISSION_GRANTED
     }
+
 
 
     private fun startCamera(){}
 
     private fun takePhoto(){}
-
-    private fun captureVideo(){}
+    
 
 }

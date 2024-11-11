@@ -43,7 +43,7 @@
     </fragment>
     <activity
         android:id="@+id/grabadoraActivity"
-        android:name="com.example.navigationcomponentexample.ui.GrabadoraActivity"
+        android:name="com.example.navigationcomponentexample.view.GrabadoraActivity"
         android:label="activity_grabadora"
         tools:layout="@layout/activity_grabadora" />
 </navigation>

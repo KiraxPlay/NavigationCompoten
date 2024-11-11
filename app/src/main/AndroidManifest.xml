@@ -18,21 +18,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NavigationComponentExample"
         tools:targetApi="31">
+
+        <!--Camara-->
         <activity
-            android:name=".ui.GrabadoraActivity"
-            android:exported="true" >
+            android:name=".view.CamaraActivity"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" /> <!---haciendo que la grabadora activity
+                <action android:name="android.intent.action.MAIN" /> <!---haciendo que la camara activity
                  sea nuestra primera ventana -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
 
+        <!--Grabadora-->
+        <activity
+            android:name=".view.GrabadoraActivity"
+            android:exported="false" >
+        </activity>
+
+        <!--Main Activity-->
+        <activity
             android:name=".MainActivity"
             android:exported="false">
-
         </activity>
+
+
     </application>
 
 </manifest>
