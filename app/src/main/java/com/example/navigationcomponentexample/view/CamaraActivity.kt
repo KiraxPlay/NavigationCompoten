@@ -2,6 +2,7 @@ package com.example.navigationcomponentexample.view
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -19,14 +20,13 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import com.cristhian.miprimeraapp.Constants
 import com.cristhian.miprimeraapp.Constants.REQUIRED_PERMISSIONS
 import com.example.navigationcomponentexample.R
 import com.example.navigationcomponentexample.databinding.ActivityCamaraBinding
 import java.io.File
 import android.content.Intent
-import kotlin.math.log
+import androidx.camera.core.ImageCaptureException
 
 class CamaraActivity : AppCompatActivity() {
 
@@ -55,6 +55,7 @@ class CamaraActivity : AppCompatActivity() {
         binding = ActivityCamaraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        checkPermissions()
 
         if(allPermissionsGranted()){
             startCamera()
@@ -77,10 +78,39 @@ class CamaraActivity : AppCompatActivity() {
     }
 
     private fun allPermissionsGranted() =
-        REQUIRED_PERMISSIONS.all {
+        arrayOf(Manifest.permission.CAMERA).all {
         ContextCompat.checkSelfPermission(
-            baseContext, it
-        ) == PackageManager.PERMISSION_GRANTED
+            baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
+
+    private fun checkPermissions() {
+        if (
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.RECORD_AUDIO
+            )
+            != PackageManager.PERMISSION_GRANTED
+            ||
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+            != PackageManager.PERMISSION_GRANTED
+            ||
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.CAMERA
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    Manifest.permission.RECORD_AUDIO,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.CAMERA
+                ), 0
+            )
+            startCamera()
+        }
     }
 
     private fun startCamera(){
@@ -123,23 +153,32 @@ class CamaraActivity : AppCompatActivity() {
     }
 
 
-    private fun takePhoto(){
-        timer = object : CountDownTimer(6_000, 1_000) {
-            override fun onTick(remaining: Long) {
-                binding.BtnCamara.isVisible = false
-                binding.tvTimer.isVisible = true
-                binding.tvTimer.text = (remaining/1000).toString()
-                if (remaining < 1_000)
-                    binding.tvTimer.text = "\uD83D\uDE09"
-            }
+    private fun takePhoto() {
+        val randomNumber = (100..999).shuffled().last()
+        val imageCapture = imageCapture ?: null
+        photoFile = File(outputDirectory, "camara_personalizada_$randomNumber.jpg")
 
-            override fun onFinish() {
-                takePhoto()
-                binding.tvTimer.isVisible = false
-                binding.ivBtnSave.isVisible = true
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile!!).build()
+        imageCapture?.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(this),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onError(exception: ImageCaptureException) {
+                    Log.d(Constants.TAG, "Fallo al guardar", exception)
+                }
+
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                    savedUri = Uri.fromFile(photoFile)
+                    showToastDialog(binding.root.context, "Se ha guardado en $savedUri")
+                    Log.d(Constants.TAG, "Guardado en la uri -> $savedUri")
+
+                }
             }
-        }
-        timer.start()
+        )
+
+
+
+
     }
 
     private fun getOutputDirectory(): File {
@@ -171,6 +210,11 @@ class CamaraActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+
+    fun showToastDialog(context: Context, msg: String) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 }
 

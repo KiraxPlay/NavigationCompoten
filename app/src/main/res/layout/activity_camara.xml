@@ -19,25 +19,16 @@
 
     </androidx.camera.view.PreviewView>
 
-    <ImageButton
-        android:id="@+id/BtnCamara"
-        android:layout_width="100dp"
-        android:layout_height="81dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/img" />
 
     <ImageView
         android:id="@+id/iv_btn_save"
-        android:layout_width="65dp"
-        android:layout_height="59dp"
+        android:layout_width="95dp"
+        android:layout_height="102dp"
         android:contentDescription="TODO"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/img_1"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -57,5 +48,15 @@
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BtnCamara"
+        android:layout_width="111dp"
+        android:layout_height="98dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
