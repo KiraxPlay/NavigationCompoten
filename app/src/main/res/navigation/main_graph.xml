@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
     </fragment>
 
     <fragment
@@ -20,12 +23,6 @@
         android:name="com.example.navigationcomponentexample.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" >
-        <action
-            android:id="@+id/action_secondFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment"
-            app:enterAnim="@animator/nav_default_enter_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
             android:name="name"
             app:argType="string"
