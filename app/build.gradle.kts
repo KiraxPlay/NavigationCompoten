@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
+    id ("kotlin-kapt")
+
 }
 
 android {
@@ -34,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -42,6 +48,11 @@ dependencies {
     //NavComponent
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")//iniciando una varible ya que se llamara una libreria
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
+    val camVersion  = "1.2.2"
+    implementation("androidx.camera:camera-camera2:$camVersion")
+    implementation("androidx.camera:camera-lifecycle:$camVersion")
+    implementation("androidx.camera:camera-view:$camVersion")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
