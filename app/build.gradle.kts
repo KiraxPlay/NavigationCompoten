@@ -54,6 +54,7 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:$camVersion")
     implementation("androidx.camera:camera-view:$camVersion")
 
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

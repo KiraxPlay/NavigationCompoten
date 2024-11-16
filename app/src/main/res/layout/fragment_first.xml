@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment"
-    android:background="@color/yellow">
+    android:background="@color/black"
+    tools:context=".FirstFragment">
 
     <Button
-        android:id="@+id/btnNavi"
-        android:layout_width="wrap_content"
-        android:layout_height="69dp"
+        android:id="@+id/btnGrabadora"
+        android:layout_width="131dp"
+        android:layout_height="126dp"
         android:layout_margin="150dp"
-        android:text="Siguiente" />
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="131dp"
+        android:background="@android:drawable/ic_btn_speak_now"
+        android:text="Grabadora"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnCamara"
+        android:layout_width="116dp"
+        android:layout_height="98dp"
+        android:layout_margin="200dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="224dp"
+        android:background="@android:drawable/ic_menu_camera"
+        android:text="Camara"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGrabadora"
+        app:layout_constraintVertical_bias="0.35000002" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

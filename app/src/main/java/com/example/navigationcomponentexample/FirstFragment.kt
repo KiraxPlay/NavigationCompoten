@@ -15,12 +15,19 @@ class FirstFragment : Fragment() {
     ): View? {
         val root : View = inflater.inflate(R.layout.fragment_first, container, false)
 
-        val btnNavi = root.findViewById<Button>(R.id.btnNavi)
+        val btnGrabadora = root.findViewById<Button>(R.id.btnGrabadora)
 
-        btnNavi.setOnClickListener{
-            findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment(name ="Sebastian"))
+        val btnCamara = root.findViewById<Button>(R.id.btnCamara)
+
+        btnGrabadora.setOnClickListener{
+            findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment())
+        }
+
+        btnCamara.setOnClickListener {
+            findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToThirdFragment())
         }
         return root
+        }
     }
 
 }
