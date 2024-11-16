@@ -19,15 +19,15 @@ class FirstFragment : Fragment() {
 
         val btnCamara = root.findViewById<Button>(R.id.btnCamara)
 
+        //Para el fragment de la grabadora
         btnGrabadora.setOnClickListener{
             findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment())
         }
-
+        //Para el fragment de la camara
         btnCamara.setOnClickListener {
             findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToThirdFragment())
         }
+
         return root
         }
     }
-
-}

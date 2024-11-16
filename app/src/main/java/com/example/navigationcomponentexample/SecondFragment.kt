@@ -16,10 +16,6 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val name:String = args.name //Accediendo a name que creamos en el maph_graph y tambien
-        //en el firstfragment.kt
-        val tvName = view.findViewById<TextView>(R.id.tvName)
-        tvName.text = name
     }
 
     override fun onCreateView(
@@ -27,11 +23,6 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root:View = inflater.inflate(R.layout.fragment_second, container, false)
-        val btnNavi = root.findViewById<Button>(R.id.btnNavi)
-
-        btnNavi.setOnClickListener{
-            findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
-        }
-        return root
+        return TODO("Provide the return value")
     }
 }

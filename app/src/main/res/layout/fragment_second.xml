@@ -1,26 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondFragment"
-    android:background="@color/blue">
+    android:background="@color/black">
 
     <Button
-        android:id="@+id/btnNavi"
-        android:layout_width="wrap_content"
-        android:layout_height="69dp"
-        android:layout_margin="150dp"
-        android:text="Siguiente" />
+        android:id="@+id/btnGrabar"
+        android:layout_width="136dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="108dp"
+        android:background="@android:drawable/ic_btn_speak_now"
+        android:backgroundTint="#090909"
+        android:text="Grabar"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        android:text="name"
-        android:layout_margin="100dp"/>
+    <Button
+        android:id="@+id/btnPausar"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="141dp"
+        android:background="@android:drawable/ic_media_pause"
+        android:text="Pausar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGrabar" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="153dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="162dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="160dp"
+        android:background="@android:drawable/ic_media_play"
+        android:text="Play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
