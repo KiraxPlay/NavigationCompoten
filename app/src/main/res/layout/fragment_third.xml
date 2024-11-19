@@ -7,6 +7,7 @@
     tools:context=".ThirdFragment"
     android:background="@color/red">
 
+
     <androidx.camera.view.PreviewView
         android:id="@+id/viewFinder"
         android:layout_width="0dp"
@@ -43,5 +44,15 @@
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/img" />
+
+    <ImageView
+        android:id="@+id/BtnFrontal"
+        android:layout_width="111dp"
+        android:layout_height="98dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/camarafron" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

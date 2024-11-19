@@ -3,18 +3,23 @@ package com.example.navigationcomponentexample
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.net.toUri
+import com.example.navigationcomponentexample.databinding.ActivityImagenCapturadaBinding
 
 class ImagenCapturadaActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityImagenCapturadaBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_imagen_capturada)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivityImagenCapturadaBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val bundle = intent.extras
+        val uriImage = bundle?.getString("uri")
+
+        binding.ivImagenCapturada.setImageURI(uriImage?.toUri())
+
     }
 }

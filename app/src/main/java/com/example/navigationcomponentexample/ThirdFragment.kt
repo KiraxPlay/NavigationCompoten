@@ -1,5 +1,6 @@
 package com.example.navigationcomponentexample
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -19,6 +20,9 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
     private var outputDirectory: File? = null
     private var savedUri: Uri? = null
 
+    // Estado para alternar entre cámara frontal y trasera
+    private var isFrontCamera: Boolean = false
+
     override fun onViewCreated(view: android.view.View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentThirdBinding.bind(view)
@@ -32,10 +36,23 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 
         // Botón para mostrar imagen capturada
         binding.ivBtnSave.setOnClickListener {
-            savedUri?.let {
-                Toast.makeText(requireContext(), "Imagen guardada en: $it", Toast.LENGTH_SHORT).show()
-            } ?: Toast.makeText(requireContext(), "No hay imagen guardada", Toast.LENGTH_SHORT).show()
+            savedUri?.let { uri ->
+                val intent = Intent(requireContext(), ImagenCapturadaActivity::class.java)
+                intent.putExtra("uri", uri.toString())
+                startActivity(intent)
+            } ?: run {
+                Toast.makeText(requireContext(), "No hay imagen capturada para mostrar", Toast.LENGTH_SHORT).show()
+            }
         }
+
+        // Botón para cambiar entre cámara trasera y frontal
+        binding.BtnFrontal.setOnClickListener { switchCamera() }
+    }
+
+    // Alternar entre cámara frontal y trasera
+    private fun switchCamera() {
+        isFrontCamera = !isFrontCamera
+        startCamera() // Reiniciar la cámara con la nueva configuración
     }
 
     private fun startCamera() {
@@ -48,7 +65,12 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
                 .setTargetResolution(Size(1280, 720))
                 .build()
 
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            // Cambiar selector de cámara según el estado
+            val cameraSelector = if (isFrontCamera) {
+                CameraSelector.DEFAULT_FRONT_CAMERA
+            } else {
+                CameraSelector.DEFAULT_BACK_CAMERA
+            }
 
             try {
                 cameraProvider.unbindAll()
