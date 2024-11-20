@@ -22,7 +22,7 @@
         android:theme="@style/Theme.NavigationComponentExample"
         tools:targetApi="31">
         <activity
-            android:name=".ImagenCapturadaActivity"
+            android:name=".ImagenCapturadaFragment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

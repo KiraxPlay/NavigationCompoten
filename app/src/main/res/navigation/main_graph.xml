@@ -33,5 +33,20 @@
         android:id="@+id/thirdFragment"
         android:name="com.example.navigationcomponentexample.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_imagenCapturadaFragment"
+            app:destination="@id/imagenCapturadaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/imagenCapturadaFragment"
+        android:name="com.example.navigationcomponentexample.ImagenCapturadaFragment"
+        android:label="Imagen Capturada"
+        tools:layout="@layout/fragment_imagen_capturada">
+        <argument
+            android:name="uri"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

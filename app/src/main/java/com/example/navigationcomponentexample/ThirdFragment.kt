@@ -10,6 +10,7 @@ import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.example.navigationcomponentexample.databinding.FragmentThirdBinding
 import java.io.File
 
@@ -37,9 +38,10 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         // Botón para mostrar imagen capturada
         binding.ivBtnSave.setOnClickListener {
             savedUri?.let { uri ->
-                val intent = Intent(requireContext(), ImagenCapturadaActivity::class.java)
-                intent.putExtra("uri", uri.toString())
-                startActivity(intent)
+                // Crear la acción con Safe Args
+                val action = ThirdFragmentDirections.actionThirdFragmentToImagenCapturadaFragment(uri.toString())
+                // Navegar al siguiente fragmento
+                findNavController().navigate(action)
             } ?: run {
                 Toast.makeText(requireContext(), "No hay imagen capturada para mostrar", Toast.LENGTH_SHORT).show()
             }

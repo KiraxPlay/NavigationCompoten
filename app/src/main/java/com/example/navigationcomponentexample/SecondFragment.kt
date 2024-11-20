@@ -4,10 +4,12 @@ import android.graphics.Color
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.example.navigationcomponentexample.databinding.FragmentSecondBinding
 import java.io.IOException
@@ -32,6 +34,8 @@ class SecondFragment : Fragment() {
         binding.btnPlay.setOnClickListener { reproducir(it) }
         binding.btnPausar.setOnClickListener { detener(it) }
 
+
+
         return binding.root
     }
 
@@ -52,6 +56,8 @@ class SecondFragment : Fragment() {
             Toast.makeText(requireContext(), "No hay grabación en curso", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 
     private fun grabar(view: View?) {
         if (isRecording) {
