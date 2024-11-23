@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("androidx.navigation.safeargs.kotlin")
     id ("kotlin-kapt")
-
 }
 
 android {
@@ -53,6 +53,12 @@ dependencies {
     implementation("androidx.camera:camera-camera2:$camVersion")
     implementation("androidx.camera:camera-lifecycle:$camVersion")
     implementation("androidx.camera:camera-view:$camVersion")
+
+    //Room
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.androidx.core.ktx)
