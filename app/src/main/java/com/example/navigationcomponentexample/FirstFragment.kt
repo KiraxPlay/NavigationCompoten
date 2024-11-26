@@ -43,10 +43,12 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
                 Toast.makeText(requireContext(), "Permisos requeridos no concedidos", Toast.LENGTH_SHORT).show()
             }
         }
+
         //Navegacion al fragmento de la CRUD
         binding.btnCrud.setOnClickListener {
             findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToUserCrudFragment())
         }
+
     }
 
     private fun allPermissionsGranted() = arrayOf(

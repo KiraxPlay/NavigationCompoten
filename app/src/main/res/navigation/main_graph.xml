@@ -56,4 +56,5 @@
         android:name="com.example.navigationcomponentexample.fragments.UserCrudFragment"
         android:label="UserCrudFragment" />
 
+
 </navigation>
