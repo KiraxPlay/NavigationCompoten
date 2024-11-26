@@ -10,26 +10,43 @@
         android:id="@+id/btnGrabadora"
         android:layout_width="187dp"
         android:layout_height="151dp"
+        android:layout_marginBottom="32dp"
         android:background="@android:drawable/ic_btn_speak_now"
         android:text="Grabadora"
-        app:layout_constraintBottom_toTopOf="@+id/btnCamara"
+        app:layout_constraintBottom_toTopOf="@+id/btnCrud"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.53" />
 
     <Button
         android:id="@+id/btnCamara"
         android:layout_width="158dp"
         android:layout_height="156dp"
+        android:layout_marginTop="-60dp"
         android:background="@android:drawable/ic_menu_camera"
         android:text="Camara"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGrabadora"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCrud" />
+
+    <Button
+
+        android:id="@+id/btnCrud"
+        android:layout_width="124dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="143dp"
+        android:background="@android:drawable/stat_notify_sdcard"
+        app:layout_constraintBottom_toTopOf="@+id/btnCamara"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGrabadora" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
