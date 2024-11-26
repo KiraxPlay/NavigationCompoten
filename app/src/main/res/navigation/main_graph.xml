@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_firstFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_userCrudFragment"
+            app:destination="@id/userCrudFragment" />
     </fragment>
 
     <fragment
@@ -48,5 +51,9 @@
             android:name="uri"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/userCrudFragment"
+        android:name="com.example.navigationcomponentexample.fragments.UserCrudFragment"
+        android:label="UserCrudFragment" />
 
 </navigation>
