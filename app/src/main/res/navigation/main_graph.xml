@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +10,12 @@
         android:id="@+id/firstFragment"
         android:name="com.example.navigationcomponentexample.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        tools:layout="@layout/fragment_first">
+
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
@@ -51,6 +57,7 @@
             android:name="uri"
             app:argType="string" />
     </fragment>
+
     <fragment
         android:id="@+id/userCrudFragment"
         android:name="com.example.navigationcomponentexample.fragments.UserCrudFragment"

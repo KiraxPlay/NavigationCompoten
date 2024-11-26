@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
     id ("kotlin-kapt")
-
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -53,6 +53,11 @@ dependencies {
     implementation("androidx.camera:camera-camera2:$camVersion")
     implementation("androidx.camera:camera-lifecycle:$camVersion")
     implementation("androidx.camera:camera-view:$camVersion")
+
+    // Room
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.androidx.core.ktx)
